@@ -1,0 +1,25 @@
+using UnityEngine;
+
+
+public class Antorcha : MonoBehaviour
+{
+    public int valorPuntos = 10;
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            
+            Salto scriptDelJugador = other.GetComponent<Salto>();
+
+            if (scriptDelJugador != null)
+            {
+                
+                scriptDelJugador.AñadirPuntos(valorPuntos);
+            }
+
+           
+           Destroy(gameObject);
+        }
+    }
+}
